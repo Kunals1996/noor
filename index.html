@@ -35,7 +35,7 @@
     }
 
     .hearts-container h2 {
-      color: #d63384;
+      color:#d63384;
       margin-bottom: 20px;
       font-size: 22px;
       animation: fadeSlideUp 1s ease-out;
@@ -128,27 +128,15 @@
 
     /* Mobile adjustments */
     @media (max-width: 600px) {
-      .big-heart {
-        font-size: 90px;
-        margin-top: 60px;
-      }
-
-      .message {
-        font-size: 20px;
-      }
-
-      .heart {
-        font-size: 60px;
-      }
-
-      .heart-text {
-        font-size: 16px;
-        max-width: 95%;
-      }
+      .big-heart { font-size: 90px; margin-top: 60px; }
+      .message { font-size: 20px; }
+      .heart { font-size: 60px; }
+      .heart-text { font-size: 16px; max-width: 95%; }
     }
   </style>
 </head>
 <body>
+
   <!-- Big Heart -->
   <div class="big-heart" onclick="showHearts()">❤️</div>
   <div class="message">Nurdan Click here!!!!! 💖</div>
@@ -156,7 +144,7 @@
   <!-- Hearts Container -->
   <div class="hearts-container">
     <h2>A small website page made by me for you (click each heart) 💕</h2>
-
+    
     <div class="heart" onclick="toggleText(this)">
       ❤️
       <div class="heart-text">Talking to you always makes me feel so calm and nice 💋 🌹</div>
@@ -184,7 +172,7 @@
 
     <div class="heart" onclick="toggleText(this)">
       💛
-      <div class="heart-text">love you - Harsh 🫡</div>
+      <div class="heart-text"> love you - Harsh 🫡</div>
     </div>
   </div>
 
@@ -192,7 +180,6 @@
     function showHearts() {
       const bigHeart = document.querySelector('.big-heart');
       bigHeart.style.animation = "pulseOut 1s forwards";
-
       setTimeout(() => {
         bigHeart.style.display = 'none';
         document.querySelector('.message').style.display = 'none';
@@ -203,7 +190,6 @@
     function toggleText(selectedHeart) {
       // Close all texts first
       document.querySelectorAll('.heart').forEach(h => h.classList.remove('active'));
-
       // Open only the clicked one
       selectedHeart.classList.add('active');
 
@@ -216,10 +202,10 @@
         sparkle.style.top = (selectedHeart.offsetTop + 20) + 'px';
         sparkle.style.animationDelay = (Math.random() * 0.5) + 's';
         document.body.appendChild(sparkle);
-
         setTimeout(() => sparkle.remove(), 1000);
       }
     }
   </script>
+
 </body>
 </html>
