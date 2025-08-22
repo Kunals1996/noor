@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Nurdan ❤️</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      text-align: center;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Big Heart */
+    .big-heart {
+      font-size: 120px;
+      cursor: pointer;
+      margin-top: 80px;
+      animation: bounce 1.5s infinite, glow 2s ease-in-out infinite alternate;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #d63384;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hearts-container {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    .hearts-container h2 {
+      color:#d63384;
+      margin-bottom: 20px;
+      font-size: 22px;
+      animation: fadeSlideUp 1s ease-out;
+    }
+
+    /* Heart block */
+    .heart {
+      font-size: 70px;
+      margin: 30px 0;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .heart:nth-child(2) { animation-delay: 0.3s; }
+    .heart:nth-child(3) { animation-delay: 0.6s; }
+    .heart:nth-child(4) { animation-delay: 0.9s; }
+    .heart:nth-child(5) { animation-delay: 1.2s; }
+
+    .heart:active {
+      transform: scale(1.4);
+    }
+
+    /* Heart text */
+    .heart-text {
+      display: none;
+      font-size: 18px;
+      color: #333;
+      margin-top: 10px;
+      max-width: 80%;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .heart.active .heart-text {
+      display: block;
+      animation: typewriter 1.5s steps(40) 1 normal both;
+      border-right: 2px solid #d63384;
+      padding-right: 4px;
+    }
+
+    /* Keyframes */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff99cc; }
+      to { text-shadow: 0 0 20px #ff3399, 0 0 40px #ff66cc; }
+    }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Confetti sparkles */
+    .sparkle {
+      position: absolute;
+      font-size: 20px;
+      pointer-events: none;
+      animation: fall 1s linear forwards;
+    }
+
+    @keyframes fall {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(80px) scale(0.5); }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .big-heart { font-size: 90px; margin-top: 60px; }
+      .message { font-size: 20px; }
+      .heart { font-size: 60px; }
+      .heart-text { font-size: 16px; max-width: 95%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Big Heart -->
+  <div class="big-heart" onclick="showHearts()">❤️</div>
+  <div class="message">Nurdan Click here!!!!! 💖</div>
+
+  <!-- Hearts Container -->
+  <div class="hearts-container">
+    <h2>A small website page made by me for you (click each heart) 💕</h2>
+    
+    <div class="heart" onclick="toggleText(this)">
+      ❤️
+      <div class="heart-text">Talking to you always makes me feel so calm and nice 💋 🌹</div>
+    </div>
+
+    <div class="heart" onclick="toggleText(this)">
+      💖
+      <div class="heart-text">You are my favourite Turkish 🇹🇷 ✨</div>
+    </div>
+
+    <div class="heart" onclick="toggleText(this)">
+      💜
+      <div class="heart-text">I love your voice 💫</div>
+    </div>
+
+    <div class="heart" onclick="toggleText(this)">
+      🧡
+      <div class="heart-text">I love everything about you Nurdan baby 🌞</div>
+    </div>
+
+    <div class="heart" onclick="toggleText(this)">
+      💙
+      <div class="heart-text">Muaahhhhhhhhhh 😘</div>
+    </div>
+  </div>
+
+  <script>
+    function showHearts() {
+      const bigHeart = document.querySelector('.big-heart');
+      bigHeart.style.animation = "pulseOut 1s forwards";
+      setTimeout(() => {
+        bigHeart.style.display = 'none';
+        document.querySelector('.message').style.display = 'none';
+        document.querySelector('.hearts-container').style.display = 'block';
+      }, 800);
+    }
+
+    function toggleText(selectedHeart) {
+      // Close all texts first
+      document.querySelectorAll('.heart').forEach(h => h.classList.remove('active'));
+      // Open only the clicked one
+      selectedHeart.classList.add('active');
+
+      // Sparkle effect
+      for (let i = 0; i < 8; i++) {
+        let sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.innerHTML = '✨';
+        sparkle.style.left = (selectedHeart.offsetLeft + 50 + Math.random() * 80) + 'px';
+        sparkle.style.top = (selectedHeart.offsetTop + 20) + 'px';
+        sparkle.style.animationDelay = (Math.random() * 0.5) + 's';
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+      }
+    }
+  </script>
+
+</body>
+</html>
